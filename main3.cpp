@@ -47,49 +47,64 @@
 #define DEG2RAD (M_PI / 180.0)
 
 // --- Vektor 2D (untuk UV / Texture Coordinate) ---
-struct Vec2 {
+struct Vec2
+{
     float u, v;
     Vec2() : u(0), v(0) {}
     Vec2(float u, float v) : u(u), v(v) {}
 };
 
 // --- Vektor 3D ---
-struct Vec3 {
+struct Vec3
+{
     float x, y, z;
     Vec3() : x(0), y(0), z(0) {}
     Vec3(float x, float y, float z) : x(x), y(y), z(z) {}
 };
 
 // --- Material (dari file .MTL) ---
-struct Material {
+struct Material
+{
     std::string name;
-    float Ka[4];    // Ambient color
-    float Kd[4];    // Diffuse color
-    float Ks[4];    // Specular color
-    float Ns;       // Shininess (specular exponent)
+    float Ka[4];                // Ambient color
+    float Kd[4];                // Diffuse color
+    float Ks[4];                // Specular color
+    float Ns;                   // Shininess (specular exponent)
     std::string texturePath;    // Path ke file texture (map_Kd)
     float texScaleS, texScaleT; // Texture UV scale (dari opsi -s di MTL)
     GLuint textureID;           // OpenGL texture ID
     bool hasTexture;            // Apakah material ini punya texture?
 
     Material() : Ns(32.0f), texScaleS(1.0f), texScaleT(1.0f),
-                 textureID(0), hasTexture(false) {
-        Ka[0]=0.2f; Ka[1]=0.2f; Ka[2]=0.2f; Ka[3]=1.0f;
-        Kd[0]=0.8f; Kd[1]=0.8f; Kd[2]=0.8f; Kd[3]=1.0f;
-        Ks[0]=0.5f; Ks[1]=0.5f; Ks[2]=0.5f; Ks[3]=1.0f;
+                 textureID(0), hasTexture(false)
+    {
+        Ka[0] = 0.2f;
+        Ka[1] = 0.2f;
+        Ka[2] = 0.2f;
+        Ka[3] = 1.0f;
+        Kd[0] = 0.8f;
+        Kd[1] = 0.8f;
+        Kd[2] = 0.8f;
+        Kd[3] = 1.0f;
+        Ks[0] = 0.5f;
+        Ks[1] = 0.5f;
+        Ks[2] = 0.5f;
+        Ks[3] = 1.0f;
     }
 };
 
 // --- Vertex pada Face (indeks ke vertex, texcoord, normal) ---
-struct FaceVert {
+struct FaceVert
+{
     int vi, ti, ni; // vertex index, texcoord index, normal index (-1 = tidak ada)
     FaceVert() : vi(-1), ti(-1), ni(-1) {}
 };
 
 // --- Batch render: sekelompok face dengan material yang sama ---
-struct RenderBatch {
+struct RenderBatch
+{
     std::string materialName;
-    std::vector< std::vector<FaceVert> > faces;
+    std::vector<std::vector<FaceVert>> faces;
 };
 
 // ============================================================
@@ -97,9 +112,9 @@ struct RenderBatch {
 // ============================================================
 
 // --- Data Geometri Scene (dari file .OBJ) ---
-std::vector<Vec3> gVertices;    // Semua vertex positions
-std::vector<Vec2> gTexCoords;   // Semua texture coordinates
-std::vector<Vec3> gNormals;     // Semua vertex normals
+std::vector<Vec3> gVertices;                 // Semua vertex positions
+std::vector<Vec2> gTexCoords;                // Semua texture coordinates
+std::vector<Vec3> gNormals;                  // Semua vertex normals
 std::map<std::string, Material> gMaterials;  // Semua material (key = nama)
 std::vector<RenderBatch> gBatches;           // Face groups per material
 std::map<std::string, GLuint> gTextureCache; // Cache texture (path -> GL ID)
@@ -111,33 +126,35 @@ GLuint gSceneList = 0;
 int gTotalVerts = 0, gTotalFaces = 0, gTotalTextures = 0, gTotalObjects = 0;
 
 // --- KAMERA (Blender-Style Orbit Camera) ---
-float camYaw   = -45.0f;   // Sudut horizontal (derajat)
-float camPitch =  20.0f;   // Sudut vertikal (derajat)
-float camDist  =  80.0f;   // Jarak kamera dari pivot
-Vec3  camPivot(0.0f, 3.0f, 60.0f); // Titik yang dilihat kamera (pivot/target)
+float camYaw = -45.0f;            // Sudut horizontal (derajat)
+float camPitch = 20.0f;           // Sudut vertikal (derajat)
+float camDist = 80.0f;            // Jarak kamera dari pivot
+Vec3 camPivot(0.0f, 3.0f, 60.0f); // Titik yang dilihat kamera (pivot/target)
 
 // Batas pivot awal (dihitung setelah load model)
 Vec3 sceneBoundsMin, sceneBoundsMax, sceneCenter;
 
 // --- Mouse State ---
 int mouseLastX = 0, mouseLastY = 0;
-bool mouseLeftDown   = false;
-bool mouseRightDown  = false;
+bool mouseLeftDown = false;
+bool mouseRightDown = false;
 bool mouseMiddleDown = false;
 
 // --- Keyboard State (untuk WASD movement) ---
-bool keyState[256] = { false };
+bool keyState[256] = {false};
 
 // --- Window ---
 int winW = 1280, winH = 720;
 
 // --- Mode Render ---
 bool wireframeMode = false;
+bool isLightBulbOn = true; // Toggle untuk bolam lampu
+bool isDayTime = true;     // Toggle untuk siang/malam
 
 // --- FPS Counter ---
-int   frameCount = 0;
+int frameCount = 0;
 float currentFPS = 0.0f;
-int   lastFPSTime = 0;
+int lastFPSTime = 0;
 
 // --- Movement Speed ---
 float moveSpeed = 0.8f;
@@ -147,37 +164,47 @@ float moveSpeed = 0.8f;
 // ============================================================
 
 // Trim karakter whitespace dan \r dari string
-static std::string trimStr(const std::string& s) {
+static std::string trimStr(const std::string &s)
+{
     size_t start = s.find_first_not_of(" \t\r\n");
-    if (start == std::string::npos) return "";
+    if (start == std::string::npos)
+        return "";
     size_t end = s.find_last_not_of(" \t\r\n");
     return s.substr(start, end - start + 1);
 }
 
 // Dapatkan direktori dari path file
-static std::string getDirectory(const std::string& filepath) {
+static std::string getDirectory(const std::string &filepath)
+{
     size_t pos = filepath.find_last_of("/\\");
-    if (pos != std::string::npos) return filepath.substr(0, pos + 1);
+    if (pos != std::string::npos)
+        return filepath.substr(0, pos + 1);
     return "";
 }
 
 // Clamp nilai
-static float clampf(float val, float lo, float hi) {
-    if (val < lo) return lo;
-    if (val > hi) return hi;
+static float clampf(float val, float lo, float hi)
+{
+    if (val < lo)
+        return lo;
+    if (val > hi)
+        return hi;
     return val;
 }
 
 // Render teks bitmap di posisi 2D
-static void drawBitmapString(float x, float y, const char* text, void* font = GLUT_BITMAP_HELVETICA_12) {
+static void drawBitmapString(float x, float y, const char *text, void *font = GLUT_BITMAP_HELVETICA_12)
+{
     glRasterPos2f(x, y);
-    for (const char* c = text; *c != '\0'; c++) {
+    for (const char *c = text; *c != '\0'; c++)
+    {
         glutBitmapCharacter(font, *c);
     }
 }
 
 // Resolusi path dinamis dengan base directory ter-hardcode
-static std::string resolvePath(const std::string& originalPath) {
+static std::string resolvePath(const std::string &originalPath)
+{
     const std::string baseDir = "D:/Skul/GK/TR2/GrafkomMoya-Panji-Object/";
     std::string path = originalPath;
     std::replace(path.begin(), path.end(), '\\', '/');
@@ -185,13 +212,15 @@ static std::string resolvePath(const std::string& originalPath) {
     // Cek apakah file ada secara langsung
     {
         std::ifstream f(path.c_str());
-        if (f.good()) {
+        if (f.good())
+        {
             return path;
         }
         // Cek dengan baseDir jika path adalah path relatif
         std::string tryBase = baseDir + path;
         std::ifstream fb(tryBase.c_str());
-        if (fb.good()) {
+        if (fb.good())
+        {
             return tryBase;
         }
     }
@@ -201,11 +230,13 @@ static std::string resolvePath(const std::string& originalPath) {
     std::transform(lowerPath.begin(), lowerPath.end(), lowerPath.begin(), ::tolower);
 
     // Jika path dimulai dengan opsi (misalnya "-s "), kita potong opsi tersebut
-    if (path.rfind("-s ", 0) == 0) {
+    if (path.rfind("-s ", 0) == 0)
+    {
         std::istringstream iss(path);
         std::string s_opt;
         float sx, sy, sz;
-        if (iss >> s_opt >> sx >> sy >> sz) {
+        if (iss >> s_opt >> sx >> sy >> sz)
+        {
             std::getline(iss, path);
             path = trimStr(path);
             lowerPath = path;
@@ -215,23 +246,29 @@ static std::string resolvePath(const std::string& originalPath) {
 
     // Cari marker folder "texture" atau "textures"
     size_t texPos = lowerPath.find("/texture/");
-    if (texPos == std::string::npos) {
+    if (texPos == std::string::npos)
+    {
         texPos = lowerPath.find("/textures/");
     }
-    if (texPos == std::string::npos && (lowerPath.rfind("texture/", 8) == 0 || lowerPath.rfind("textures/", 9) == 0)) {
+    if (texPos == std::string::npos && (lowerPath.rfind("texture/", 8) == 0 || lowerPath.rfind("textures/", 9) == 0))
+    {
         texPos = 0;
     }
 
-    if (texPos != std::string::npos) {
+    if (texPos != std::string::npos)
+    {
         size_t startPos = (texPos == 0) ? 0 : path.find('/', texPos);
-        if (startPos != std::string::npos) {
+        if (startPos != std::string::npos)
+        {
             std::string sub = path.substr(startPos + 1);
             size_t slashPos = sub.find('/');
-            if (slashPos != std::string::npos) {
+            if (slashPos != std::string::npos)
+            {
                 std::string rest = sub.substr(slashPos + 1);
                 std::string tryPath = baseDir + "Texture/" + rest;
                 std::ifstream f(tryPath.c_str());
-                if (f.good()) {
+                if (f.good())
+                {
                     return tryPath;
                 }
             }
@@ -240,23 +277,29 @@ static std::string resolvePath(const std::string& originalPath) {
 
     // Cari marker folder "object" atau "objects"
     size_t objPos = lowerPath.find("/object/");
-    if (objPos == std::string::npos) {
+    if (objPos == std::string::npos)
+    {
         objPos = lowerPath.find("/objects/");
     }
-    if (objPos == std::string::npos && (lowerPath.rfind("object/", 7) == 0 || lowerPath.rfind("objects/", 8) == 0)) {
+    if (objPos == std::string::npos && (lowerPath.rfind("object/", 7) == 0 || lowerPath.rfind("objects/", 8) == 0))
+    {
         objPos = 0;
     }
 
-    if (objPos != std::string::npos) {
+    if (objPos != std::string::npos)
+    {
         size_t startPos = (objPos == 0) ? 0 : path.find('/', objPos);
-        if (startPos != std::string::npos) {
+        if (startPos != std::string::npos)
+        {
             std::string sub = path.substr(startPos + 1);
             size_t slashPos = sub.find('/');
-            if (slashPos != std::string::npos) {
+            if (slashPos != std::string::npos)
+            {
                 std::string rest = sub.substr(slashPos + 1);
                 std::string tryPath = baseDir + "object/" + rest;
                 std::ifstream f(tryPath.c_str());
-                if (f.good()) {
+                if (f.good())
+                {
                     return tryPath;
                 }
             }
@@ -266,16 +309,19 @@ static std::string resolvePath(const std::string& originalPath) {
     // Fallback ke nama file saja di folder Texture/ atau object/
     size_t lastSlash = path.find_last_of('/');
     std::string filename = (lastSlash == std::string::npos) ? path : path.substr(lastSlash + 1);
-    if (!filename.empty()) {
+    if (!filename.empty())
+    {
         std::string tryTex = baseDir + "Texture/" + filename;
         {
             std::ifstream f(tryTex.c_str());
-            if (f.good()) return tryTex;
+            if (f.good())
+                return tryTex;
         }
         std::string tryObj = baseDir + "object/" + filename;
         {
             std::ifstream f(tryObj.c_str());
-            if (f.good()) return tryObj;
+            if (f.good())
+                return tryObj;
         }
     }
 
@@ -286,10 +332,12 @@ static std::string resolvePath(const std::string& originalPath) {
 // SECTION 4: TEXTURE LOADER (stb_image -> OpenGL)
 // ============================================================
 
-GLuint loadTexture(const std::string& path) {
+GLuint loadTexture(const std::string &path)
+{
     std::string resolved = resolvePath(path);
     // Cek cache: apakah texture ini sudah pernah di-load?
-    if (gTextureCache.count(resolved)) {
+    if (gTextureCache.count(resolved))
+    {
         return gTextureCache[resolved];
     }
 
@@ -299,34 +347,47 @@ GLuint loadTexture(const std::string& path) {
     int width, height, channels;
     int req_channels = 0;
     GLenum format = GL_RGB;
-    
-    if (stbi_info(resolved.c_str(), &width, &height, &channels)) {
-        if (channels == 1) {
+
+    if (stbi_info(resolved.c_str(), &width, &height, &channels))
+    {
+        if (channels == 1)
+        {
             req_channels = 1;
             format = GL_LUMINANCE;
-        } else if (channels == 2) {
-            req_channels = 4;
-            format = GL_RGBA;
-        } else if (channels == 3) {
-            req_channels = 3;
-            format = GL_RGB;
-        } else if (channels == 4) {
-            req_channels = 4;
-            format = GL_RGBA;
-        } else {
+        }
+        else if (channels == 2)
+        {
             req_channels = 4;
             format = GL_RGBA;
         }
-    } else {
+        else if (channels == 3)
+        {
+            req_channels = 3;
+            format = GL_RGB;
+        }
+        else if (channels == 4)
+        {
+            req_channels = 4;
+            format = GL_RGBA;
+        }
+        else
+        {
+            req_channels = 4;
+            format = GL_RGBA;
+        }
+    }
+    else
+    {
         // Fallback jika stbi_info gagal
         req_channels = 4;
         format = GL_RGBA;
     }
 
     stbi_set_flip_vertically_on_load(1); // Flip Y agar sesuai OpenGL
-    unsigned char* data = stbi_load(resolved.c_str(), &width, &height, &channels, req_channels);
+    unsigned char *data = stbi_load(resolved.c_str(), &width, &height, &channels, req_channels);
 
-    if (!data) {
+    if (!data)
+    {
         std::cerr << "  [TEX] GAGAL load texture: " << resolved << " (original: " << path << ")" << std::endl;
         return 0;
     }
@@ -360,28 +421,33 @@ GLuint loadTexture(const std::string& path) {
 // SECTION 5: MTL PARSER (Material Library Loader)
 // ============================================================
 
-bool loadMTL(const std::string& mtlPath) {
+bool loadMTL(const std::string &mtlPath)
+{
     std::string resolved = resolvePath(mtlPath);
     std::ifstream file(resolved.c_str());
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cerr << "[MTL] Gagal membuka: " << resolved << " (original: " << mtlPath << ")" << std::endl;
         return false;
     }
 
     std::cout << "[MTL] Memuat: " << resolved << std::endl;
 
-    Material* currentMat = NULL;
+    Material *currentMat = NULL;
     std::string line;
 
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         line = trimStr(line);
-        if (line.empty() || line[0] == '#') continue;
+        if (line.empty() || line[0] == '#')
+            continue;
 
         std::istringstream ss(line);
         std::string keyword;
         ss >> keyword;
 
-        if (keyword == "newmtl") {
+        if (keyword == "newmtl")
+        {
             // Material baru
             std::string matName;
             std::getline(ss, matName);
@@ -391,43 +457,53 @@ bool loadMTL(const std::string& mtlPath) {
             gMaterials[matName].name = matName;
             currentMat = &gMaterials[matName];
         }
-        else if (!currentMat) {
+        else if (!currentMat)
+        {
             continue; // Belum ada material aktif
         }
-        else if (keyword == "Ka") {
+        else if (keyword == "Ka")
+        {
             ss >> currentMat->Ka[0] >> currentMat->Ka[1] >> currentMat->Ka[2];
             currentMat->Ka[3] = 1.0f;
         }
-        else if (keyword == "Kd") {
+        else if (keyword == "Kd")
+        {
             ss >> currentMat->Kd[0] >> currentMat->Kd[1] >> currentMat->Kd[2];
             currentMat->Kd[3] = 1.0f;
         }
-        else if (keyword == "Ks") {
+        else if (keyword == "Ks")
+        {
             ss >> currentMat->Ks[0] >> currentMat->Ks[1] >> currentMat->Ks[2];
             currentMat->Ks[3] = 1.0f;
         }
-        else if (keyword == "Ns") {
+        else if (keyword == "Ns")
+        {
             ss >> currentMat->Ns;
             // Clamp Ns ke range OpenGL (0-128)
             currentMat->Ns = clampf(currentMat->Ns, 0.0f, 128.0f);
         }
-        else if (keyword == "d") {
+        else if (keyword == "d")
+        {
             float alpha;
-            if (ss >> alpha) {
+            if (ss >> alpha)
+            {
                 currentMat->Kd[3] = alpha;
                 currentMat->Ka[3] = alpha;
                 currentMat->Ks[3] = alpha;
             }
         }
-        else if (keyword == "Tr") {
+        else if (keyword == "Tr")
+        {
             float trans;
-            if (ss >> trans) {
+            if (ss >> trans)
+            {
                 currentMat->Kd[3] = 1.0f - trans;
                 currentMat->Ka[3] = 1.0f - trans;
                 currentMat->Ks[3] = 1.0f - trans;
             }
         }
-        else if (keyword == "map_Kd") {
+        else if (keyword == "map_Kd")
+        {
             // Parse texture path (mungkin ada opsi -s sebelumnya)
             // Format: map_Kd [-s sx sy sz] path/ke/texture.jpg
             std::string remainder;
@@ -436,15 +512,18 @@ bool loadMTL(const std::string& mtlPath) {
 
             // Cari path absolut (dimulai dengan drive letter, misal C:/)
             size_t pathStart = std::string::npos;
-            for (size_t i = 0; i + 2 < remainder.size(); i++) {
-                if (isalpha(remainder[i]) && remainder[i+1] == ':' &&
-                    (remainder[i+2] == '/' || remainder[i+2] == '\\')) {
+            for (size_t i = 0; i + 2 < remainder.size(); i++)
+            {
+                if (isalpha(remainder[i]) && remainder[i + 1] == ':' &&
+                    (remainder[i + 2] == '/' || remainder[i + 2] == '\\'))
+                {
                     pathStart = i;
                     break;
                 }
             }
 
-            if (pathStart != std::string::npos) {
+            if (pathStart != std::string::npos)
+            {
                 // Ada path absolut
                 currentMat->texturePath = trimStr(remainder.substr(pathStart));
 
@@ -452,16 +531,22 @@ bool loadMTL(const std::string& mtlPath) {
                 std::string options = remainder.substr(0, pathStart);
                 std::istringstream optSS(options);
                 std::string optToken;
-                while (optSS >> optToken) {
-                    if (optToken == "-s") {
+                while (optSS >> optToken)
+                {
+                    if (optToken == "-s")
+                    {
                         float sx = 1.0f, sy = 1.0f, sz = 1.0f;
-                        if (optSS >> sx) currentMat->texScaleS = sx;
-                        if (optSS >> sy) currentMat->texScaleT = sy;
+                        if (optSS >> sx)
+                            currentMat->texScaleS = sx;
+                        if (optSS >> sy)
+                            currentMat->texScaleT = sy;
                         optSS >> sz; // Baca sz tapi tidak dipakai (2D)
                     }
                     // Opsi lain (-o, -t, dll.) di-skip
                 }
-            } else {
+            }
+            else
+            {
                 // Path relatif
                 currentMat->texturePath = trimStr(remainder);
             }
@@ -471,9 +556,11 @@ bool loadMTL(const std::string& mtlPath) {
     file.close();
 
     // Load semua texture dari material yang punya map_Kd
-    for (auto& pair : gMaterials) {
-        Material& mat = pair.second;
-        if (!mat.texturePath.empty()) {
+    for (auto &pair : gMaterials)
+    {
+        Material &mat = pair.second;
+        if (!mat.texturePath.empty())
+        {
             mat.textureID = loadTexture(mat.texturePath);
             mat.hasTexture = (mat.textureID != 0);
         }
@@ -487,10 +574,12 @@ bool loadMTL(const std::string& mtlPath) {
 // SECTION 6: OBJ PARSER (Wavefront OBJ Loader)
 // ============================================================
 
-bool loadOBJ(const std::string& objPath) {
+bool loadOBJ(const std::string &objPath)
+{
     std::string resolved = resolvePath(objPath);
     std::ifstream file(resolved.c_str());
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cerr << "[OBJ] Gagal membuka: " << resolved << " (original: " << objPath << ")" << std::endl;
         return false;
     }
@@ -498,21 +587,24 @@ bool loadOBJ(const std::string& objPath) {
     std::cout << "[OBJ] Memuat: " << resolved << std::endl;
 
     std::string baseDir = getDirectory(resolved);
-    RenderBatch* currentBatch = NULL;
+    RenderBatch *currentBatch = NULL;
     std::string line;
     int lineNum = 0;
 
     // Inisialisasi batas scene
-    sceneBoundsMin = Vec3( 1e9f,  1e9f,  1e9f);
+    sceneBoundsMin = Vec3(1e9f, 1e9f, 1e9f);
     sceneBoundsMax = Vec3(-1e9f, -1e9f, -1e9f);
 
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         lineNum++;
         line = trimStr(line);
-        if (line.empty() || line[0] == '#') continue;
+        if (line.empty() || line[0] == '#')
+            continue;
 
         // Progress setiap 20000 baris
-        if (lineNum % 20000 == 0) {
+        if (lineNum % 20000 == 0)
+        {
             std::cout << "  [OBJ] Baris " << lineNum << " diproses..." << std::endl;
         }
 
@@ -520,43 +612,55 @@ bool loadOBJ(const std::string& objPath) {
         char keyword[16] = {0};
         sscanf(line.c_str(), "%15s", keyword);
 
-        if (strcmp(keyword, "mtllib") == 0) {
+        if (strcmp(keyword, "mtllib") == 0)
+        {
             // --- Load Material Library ---
             std::string mtlFile = trimStr(line.substr(6));
             std::string mtlFullPath = baseDir + mtlFile;
             loadMTL(mtlFullPath);
         }
-        else if (strcmp(keyword, "o") == 0) {
+        else if (strcmp(keyword, "o") == 0)
+        {
             // --- Object baru ---
             gTotalObjects++;
         }
-        else if (strcmp(keyword, "v") == 0 && line.size() > 1 && line[1] == ' ') {
+        else if (strcmp(keyword, "v") == 0 && line.size() > 1 && line[1] == ' ')
+        {
             // --- Vertex Position ---
             Vec3 v;
             sscanf(line.c_str(), "v %f %f %f", &v.x, &v.y, &v.z);
             gVertices.push_back(v);
 
             // Update bounding box
-            if (v.x < sceneBoundsMin.x) sceneBoundsMin.x = v.x;
-            if (v.y < sceneBoundsMin.y) sceneBoundsMin.y = v.y;
-            if (v.z < sceneBoundsMin.z) sceneBoundsMin.z = v.z;
-            if (v.x > sceneBoundsMax.x) sceneBoundsMax.x = v.x;
-            if (v.y > sceneBoundsMax.y) sceneBoundsMax.y = v.y;
-            if (v.z > sceneBoundsMax.z) sceneBoundsMax.z = v.z;
+            if (v.x < sceneBoundsMin.x)
+                sceneBoundsMin.x = v.x;
+            if (v.y < sceneBoundsMin.y)
+                sceneBoundsMin.y = v.y;
+            if (v.z < sceneBoundsMin.z)
+                sceneBoundsMin.z = v.z;
+            if (v.x > sceneBoundsMax.x)
+                sceneBoundsMax.x = v.x;
+            if (v.y > sceneBoundsMax.y)
+                sceneBoundsMax.y = v.y;
+            if (v.z > sceneBoundsMax.z)
+                sceneBoundsMax.z = v.z;
         }
-        else if (strcmp(keyword, "vt") == 0) {
+        else if (strcmp(keyword, "vt") == 0)
+        {
             // --- Texture Coordinate ---
             Vec2 vt;
             sscanf(line.c_str(), "vt %f %f", &vt.u, &vt.v);
             gTexCoords.push_back(vt);
         }
-        else if (strcmp(keyword, "vn") == 0) {
+        else if (strcmp(keyword, "vn") == 0)
+        {
             // --- Vertex Normal ---
             Vec3 vn;
             sscanf(line.c_str(), "vn %f %f %f", &vn.x, &vn.y, &vn.z);
             gNormals.push_back(vn);
         }
-        else if (strcmp(keyword, "usemtl") == 0) {
+        else if (strcmp(keyword, "usemtl") == 0)
+        {
             // --- Ganti Material Aktif ---
             std::string matName = trimStr(line.substr(6));
 
@@ -566,12 +670,14 @@ bool loadOBJ(const std::string& objPath) {
             gBatches.push_back(batch);
             currentBatch = &gBatches.back();
         }
-        else if (strcmp(keyword, "f") == 0) {
+        else if (strcmp(keyword, "f") == 0)
+        {
             // --- Face (polygon) ---
             // Format: f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3 [v4/vt4/vn4 ...]
             // Juga handle: f v1 | f v1//vn1 | f v1/vt1
 
-            if (!currentBatch) {
+            if (!currentBatch)
+            {
                 // Face tanpa material -> buat batch default
                 RenderBatch batch;
                 batch.materialName = "";
@@ -583,28 +689,38 @@ bool loadOBJ(const std::string& objPath) {
             std::istringstream fss(line.substr(1)); // skip 'f'
             std::string segment;
 
-            while (fss >> segment) {
+            while (fss >> segment)
+            {
                 FaceVert fv;
                 // Parse format v/vt/vn
                 int vi = 0, ti = 0, ni = 0;
 
-                if (sscanf(segment.c_str(), "%d/%d/%d", &vi, &ti, &ni) == 3) {
-                    fv.vi = vi - 1; fv.ti = ti - 1; fv.ni = ni - 1;
+                if (sscanf(segment.c_str(), "%d/%d/%d", &vi, &ti, &ni) == 3)
+                {
+                    fv.vi = vi - 1;
+                    fv.ti = ti - 1;
+                    fv.ni = ni - 1;
                 }
-                else if (sscanf(segment.c_str(), "%d//%d", &vi, &ni) == 2) {
-                    fv.vi = vi - 1; fv.ni = ni - 1;
+                else if (sscanf(segment.c_str(), "%d//%d", &vi, &ni) == 2)
+                {
+                    fv.vi = vi - 1;
+                    fv.ni = ni - 1;
                 }
-                else if (sscanf(segment.c_str(), "%d/%d", &vi, &ti) == 2) {
-                    fv.vi = vi - 1; fv.ti = ti - 1;
+                else if (sscanf(segment.c_str(), "%d/%d", &vi, &ti) == 2)
+                {
+                    fv.vi = vi - 1;
+                    fv.ti = ti - 1;
                 }
-                else if (sscanf(segment.c_str(), "%d", &vi) == 1) {
+                else if (sscanf(segment.c_str(), "%d", &vi) == 1)
+                {
                     fv.vi = vi - 1;
                 }
 
                 faceVerts.push_back(fv);
             }
 
-            if (faceVerts.size() >= 3) {
+            if (faceVerts.size() >= 3)
+            {
                 currentBatch->faces.push_back(faceVerts);
                 gTotalFaces++;
             }
@@ -623,14 +739,16 @@ bool loadOBJ(const std::string& objPath) {
     float dx = sceneBoundsMax.x - sceneBoundsMin.x;
     float dy = sceneBoundsMax.y - sceneBoundsMin.y;
     float dz = sceneBoundsMax.z - sceneBoundsMin.z;
-    float diagonal = sqrtf(dx*dx + dy*dy + dz*dz);
+    float diagonal = sqrtf(dx * dx + dy * dy + dz * dz);
 
     // Set kamera awal
     camPivot = sceneCenter;
     camDist = diagonal * 0.8f;
-    if (camDist < 5.0f) camDist = 5.0f;
+    if (camDist < 5.0f)
+        camDist = 5.0f;
     moveSpeed = diagonal * 0.01f;
-    if (moveSpeed < 0.1f) moveSpeed = 0.1f;
+    if (moveSpeed < 0.1f)
+        moveSpeed = 0.1f;
 
     std::cout << "[OBJ] Selesai!" << std::endl;
     std::cout << "  Objects  : " << gTotalObjects << std::endl;
@@ -652,50 +770,67 @@ bool loadOBJ(const std::string& objPath) {
 // SECTION 7: BUILD DISPLAY LIST (Compile scene sekali)
 // ============================================================
 
-void buildSceneDisplayList() {
+void buildSceneDisplayList()
+{
     std::cout << "[RENDER] Membuat Display List..." << std::endl;
 
-    if (gSceneList) glDeleteLists(gSceneList, 1);
+    if (gSceneList)
+        glDeleteLists(gSceneList, 1);
     gSceneList = glGenLists(1);
     glNewList(gSceneList, GL_COMPILE);
 
     std::string lastMaterial = "___NONE___";
 
-    for (int pass = 0; pass < 2; pass++) {
+    for (int pass = 0; pass < 2; pass++)
+    {
         // Pass 0: Render Objek Solid/Opaque, Pass 1: Render Objek Transparan (Kaca)
-        if (pass == 0) {
+        if (pass == 0)
+        {
             glDepthMask(GL_TRUE);
-        } else {
-            glDepthMask(GL_FALSE); // Matikan penulisan Z-buffer untuk kaca
+        }
+        else
+        {
+            glDepthMask(GL_FALSE);       // Matikan penulisan Z-buffer untuk kaca
             lastMaterial = "___NONE___"; // Paksa update material untuk pass 2
         }
 
-        for (size_t b = 0; b < gBatches.size(); b++) {
-            const RenderBatch& batch = gBatches[b];
-            if (batch.faces.empty()) continue;
+        for (size_t b = 0; b < gBatches.size(); b++)
+        {
+            const RenderBatch &batch = gBatches[b];
+            if (batch.faces.empty())
+                continue;
 
             bool isTransparent = false;
-            if (gMaterials.count(batch.materialName)) {
-                if (gMaterials[batch.materialName].Kd[3] < 0.99f) {
+            if (gMaterials.count(batch.materialName))
+            {
+                if (gMaterials[batch.materialName].Kd[3] < 0.99f)
+                {
                     isTransparent = true;
                 }
             }
 
             // Pisahkan batch berdasarkan pass
-            if (pass == 0 && isTransparent) continue;
-            if (pass == 1 && !isTransparent) continue;
+            if (pass == 0 && isTransparent)
+                continue;
+            if (pass == 1 && !isTransparent)
+                continue;
 
             // --- Set Material (hanya jika berubah) ---
-            if (batch.materialName != lastMaterial) {
+            if (batch.materialName != lastMaterial)
+            {
                 lastMaterial = batch.materialName;
 
-                if (gMaterials.count(batch.materialName)) {
-                    const Material& mat = gMaterials[batch.materialName];
+                if (gMaterials.count(batch.materialName))
+                {
+                    const Material &mat = gMaterials[batch.materialName];
 
                     // Kurangi efek specular (pantulan abu-abu) jika ini adalah kaca
-                    float customKs[4] = { mat.Ks[0], mat.Ks[1], mat.Ks[2], mat.Ks[3] };
-                    if (isTransparent) {
-                        customKs[0] *= 0.1f; customKs[1] *= 0.1f; customKs[2] *= 0.1f;
+                    float customKs[4] = {mat.Ks[0], mat.Ks[1], mat.Ks[2], mat.Ks[3]};
+                    if (isTransparent)
+                    {
+                        customKs[0] *= 0.1f;
+                        customKs[1] *= 0.1f;
+                        customKs[2] *= 0.1f;
                     }
 
                     // Set OpenGL material properties
@@ -708,14 +843,19 @@ void buildSceneDisplayList() {
                     glColor4fv(mat.Kd);
 
                     // Bind texture jika ada
-                    if (mat.hasTexture) {
+                    if (mat.hasTexture)
+                    {
                         glEnable(GL_TEXTURE_2D);
                         glBindTexture(GL_TEXTURE_2D, mat.textureID);
-                    } else {
+                    }
+                    else
+                    {
                         glDisable(GL_TEXTURE_2D);
                         glBindTexture(GL_TEXTURE_2D, 0);
                     }
-                } else {
+                }
+                else
+                {
                     // Material default (tidak ditemukan)
                     float defaultKd[] = {0.7f, 0.7f, 0.7f, 1.0f};
                     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, defaultKd);
@@ -727,33 +867,39 @@ void buildSceneDisplayList() {
 
             // Dapatkan material untuk texture scaling
             float tsS = 1.0f, tsT = 1.0f;
-            if (gMaterials.count(batch.materialName)) {
+            if (gMaterials.count(batch.materialName))
+            {
                 tsS = gMaterials[batch.materialName].texScaleS;
                 tsT = gMaterials[batch.materialName].texScaleT;
             }
 
             // --- Render semua face dalam batch ini ---
-            for (size_t f = 0; f < batch.faces.size(); f++) {
-                const std::vector<FaceVert>& face = batch.faces[f];
+            for (size_t f = 0; f < batch.faces.size(); f++)
+            {
+                const std::vector<FaceVert> &face = batch.faces[f];
 
                 glBegin(GL_POLYGON);
-                for (size_t i = 0; i < face.size(); i++) {
-                    const FaceVert& fv = face[i];
+                for (size_t i = 0; i < face.size(); i++)
+                {
+                    const FaceVert &fv = face[i];
 
                     // Normal
-                    if (fv.ni >= 0 && fv.ni < (int)gNormals.size()) {
+                    if (fv.ni >= 0 && fv.ni < (int)gNormals.size())
+                    {
                         glNormal3f(gNormals[fv.ni].x, gNormals[fv.ni].y, gNormals[fv.ni].z);
                     }
 
                     // Texture Coordinate (dengan UV scaling dari MTL)
-                    if (fv.ti >= 0 && fv.ti < (int)gTexCoords.size()) {
+                    if (fv.ti >= 0 && fv.ti < (int)gTexCoords.size())
+                    {
                         float u = gTexCoords[fv.ti].u * tsS;
                         float v = gTexCoords[fv.ti].v * tsT;
                         glTexCoord2f(u, v);
                     }
 
                     // Vertex Position
-                    if (fv.vi >= 0 && fv.vi < (int)gVertices.size()) {
+                    if (fv.vi >= 0 && fv.vi < (int)gVertices.size())
+                    {
                         glVertex3f(gVertices[fv.vi].x, gVertices[fv.vi].y, gVertices[fv.vi].z);
                     }
                 }
@@ -774,7 +920,8 @@ void buildSceneDisplayList() {
 // ============================================================
 
 // Menggambar grid pada bidang XZ (seperti di Blender)
-void drawGrid() {
+void drawGrid()
+{
     glPushAttrib(GL_ENABLE_BIT | GL_CURRENT_BIT);
     glDisable(GL_LIGHTING);
     glDisable(GL_TEXTURE_2D);
@@ -790,7 +937,8 @@ void drawGrid() {
     glBegin(GL_LINES);
     // Grid tipis (abu-abu gelap)
     glColor4f(0.3f, 0.3f, 0.3f, 0.5f);
-    for (float i = -gridSize; i <= gridSize; i += gridStep) {
+    for (float i = -gridSize; i <= gridSize; i += gridStep)
+    {
         glVertex3f(cx + i, gridY, cz - gridSize);
         glVertex3f(cx + i, gridY, cz + gridSize);
         glVertex3f(cx - gridSize, gridY, cz + i);
@@ -802,7 +950,8 @@ void drawGrid() {
 }
 
 // Menggambar sumbu XYZ di pusat scene
-void drawAxes() {
+void drawAxes()
+{
     glPushAttrib(GL_ENABLE_BIT | GL_CURRENT_BIT | GL_LINE_BIT);
     glDisable(GL_LIGHTING);
     glDisable(GL_TEXTURE_2D);
@@ -836,7 +985,8 @@ void drawAxes() {
 // SECTION 9: HUD (Heads-Up Display)
 // ============================================================
 
-void drawHUD() {
+void drawHUD()
+{
     // Simpan semua state OpenGL
     glPushAttrib(GL_ALL_ATTRIB_BITS);
 
@@ -871,8 +1021,8 @@ void drawHUD() {
     // Panel kanan bawah (kontrol)
     glColor4f(0.0f, 0.0f, 0.0f, 0.6f);
     glBegin(GL_QUADS);
-    glVertex2f(winW - 310, 180);
-    glVertex2f(winW, 180);
+    glVertex2f(winW - 310, 225);
+    glVertex2f(winW, 225);
     glVertex2f(winW, 0);
     glVertex2f(winW - 310, 0);
     glEnd();
@@ -911,22 +1061,24 @@ void drawHUD() {
     float rx = (float)(winW - 300);
 
     glColor3f(0.3f, 0.85f, 1.0f);
-    drawBitmapString(rx, 165, "KONTROL KAMERA", GLUT_BITMAP_HELVETICA_18);
+    drawBitmapString(rx, 200, "KONTROL KAMERA", GLUT_BITMAP_HELVETICA_18);
 
     glColor3f(0.9f, 0.9f, 0.7f);
-    drawBitmapString(rx, 145, "Left Mouse Drag  : Orbit (Rotasi)");
-    drawBitmapString(rx, 130, "Right Mouse Drag : Pan (Geser)");
-    drawBitmapString(rx, 115, "Scroll Wheel     : Zoom In/Out");
+    drawBitmapString(rx, 175, "Left Mouse Drag  : Orbit (Rotasi)");
+    drawBitmapString(rx, 160, "Right Mouse Drag : Pan (Geser)");
+    drawBitmapString(rx, 145, "Scroll Wheel     : Zoom In/Out");
 
     glColor3f(0.7f, 0.9f, 0.7f);
-    drawBitmapString(rx, 95,  "W / A / S / D    : Gerak Maju/Kiri/Mundur/Kanan");
-    drawBitmapString(rx, 80,  "Q / E            : Gerak Naik/Turun");
+    drawBitmapString(rx, 125, "W / A / S / D    : Gerak Maju/Kiri/Mundur/Kanan");
+    drawBitmapString(rx, 110, "Q / E            : Gerak Naik/Turun");
 
     glColor3f(0.9f, 0.7f, 0.7f);
-    drawBitmapString(rx, 60,  "Z                : Toggle Wireframe");
-    drawBitmapString(rx, 45,  "R                : Reset Kamera");
-    drawBitmapString(rx, 30,  "+  /  -          : Kecepatan +/-");
-    drawBitmapString(rx, 15,  "ESC              : Keluar");
+    drawBitmapString(rx, 90, "Z                : Toggle Wireframe");
+    drawBitmapString(rx, 75, "L                : Toggle Lampu Ruangan");
+    drawBitmapString(rx, 60, "T                : Toggle Siang/Malam");
+    drawBitmapString(rx, 45, "R                : Reset Kamera");
+    drawBitmapString(rx, 30, "+  /  -          : Kecepatan +/-");
+    drawBitmapString(rx, 15, "ESC              : Keluar");
 
     // Restore state
     glMatrixMode(GL_PROJECTION);
@@ -941,7 +1093,8 @@ void drawHUD() {
 // SECTION 10: INISIALISASI OPENGL
 // ============================================================
 
-void initGL() {
+void initGL()
+{
     // Background gelap (seperti viewport Blender)
     glClearColor(0.18f, 0.18f, 0.22f, 1.0f);
 
@@ -956,25 +1109,72 @@ void initGL() {
 
     // === LIGHT 0: Lampu Utama (mengikuti kamera) ===
     glEnable(GL_LIGHT0);
-    GLfloat light0Pos[]     = { 0.0f, 1.0f, 1.0f, 0.0f }; // Directional (w=0)
-    GLfloat light0Ambient[] = { 0.15f, 0.15f, 0.18f, 1.0f };
-    GLfloat light0Diffuse[] = { 0.85f, 0.83f, 0.80f, 1.0f };
-    GLfloat light0Spec[]    = { 0.5f, 0.5f, 0.5f, 1.0f };
+    GLfloat light0Pos[] = {0.0f, 1.0f, 1.0f, 0.0f}; // Directional (w=0)
+    GLfloat light0Ambient[] = {0.15f, 0.15f, 0.18f, 1.0f};
+    GLfloat light0Diffuse[] = {0.85f, 0.83f, 0.80f, 1.0f};
+    GLfloat light0Spec[] = {0.5f, 0.5f, 0.5f, 1.0f};
     glLightfv(GL_LIGHT0, GL_POSITION, light0Pos);
-    glLightfv(GL_LIGHT0, GL_AMBIENT,  light0Ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light0Diffuse);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light0Ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light0Diffuse);
     glLightfv(GL_LIGHT0, GL_SPECULAR, light0Spec);
 
     // === LIGHT 1: Fill Light (dari sisi berlawanan) ===
     glEnable(GL_LIGHT1);
-    GLfloat light1Pos[]     = { -1.0f, 0.5f, -0.5f, 0.0f };
-    GLfloat light1Ambient[] = { 0.05f, 0.05f, 0.08f, 1.0f };
-    GLfloat light1Diffuse[] = { 0.3f, 0.3f, 0.35f, 1.0f };
-    GLfloat light1Spec[]    = { 0.1f, 0.1f, 0.1f, 1.0f };
+    GLfloat light1Pos[] = {-1.0f, 0.5f, -0.5f, 0.0f};
+    GLfloat light1Ambient[] = {0.05f, 0.05f, 0.08f, 1.0f};
+    GLfloat light1Diffuse[] = {0.3f, 0.3f, 0.35f, 1.0f};
+    GLfloat light1Spec[] = {0.1f, 0.1f, 0.1f, 1.0f};
     glLightfv(GL_LIGHT1, GL_POSITION, light1Pos);
-    glLightfv(GL_LIGHT1, GL_AMBIENT,  light1Ambient);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE,  light1Diffuse);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, light1Ambient);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light1Diffuse);
     glLightfv(GL_LIGHT1, GL_SPECULAR, light1Spec);
+
+    // === ROOM LIGHTS (Bolam Lampu) ===
+    GLfloat bulbAmbient[] = {0.1f, 0.1f, 0.1f, 1.0f};
+    GLfloat bulbDiffuse[] = {0.9f, 0.8f, 0.6f, 1.0f}; // Warm white
+    GLfloat bulbSpec[] = {0.8f, 0.8f, 0.8f, 1.0f};
+
+    glLightfv(GL_LIGHT2, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT2, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.005f);
+
+    glLightfv(GL_LIGHT3, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT3, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT3, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT3, GL_QUADRATIC_ATTENUATION, 0.005f);
+
+    glLightfv(GL_LIGHT4, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT4, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT4, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT4, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT4, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT4, GL_QUADRATIC_ATTENUATION, 0.005f);
+
+    glLightfv(GL_LIGHT5, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT5, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT5, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT5, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT5, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT5, GL_QUADRATIC_ATTENUATION, 0.005f);
+
+    glLightfv(GL_LIGHT6, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT6, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT6, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT6, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT6, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT6, GL_QUADRATIC_ATTENUATION, 0.005f);
+
+    glLightfv(GL_LIGHT7, GL_AMBIENT, bulbAmbient);
+    glLightfv(GL_LIGHT7, GL_DIFFUSE, bulbDiffuse);
+    glLightfv(GL_LIGHT7, GL_SPECULAR, bulbSpec);
+    glLightf(GL_LIGHT7, GL_CONSTANT_ATTENUATION, 1.0f);
+    glLightf(GL_LIGHT7, GL_LINEAR_ATTENUATION, 0.04f);
+    glLightf(GL_LIGHT7, GL_QUADRATIC_ATTENUATION, 0.005f);
 
     // Aktifkan Color Material agar glColor juga mempengaruhi material
     glEnable(GL_COLOR_MATERIAL);
@@ -1002,7 +1202,13 @@ void initGL() {
 //
 // ============================================================
 
-void display() {
+void display()
+{
+    if (isDayTime) {
+        glClearColor(0.5f, 0.7f, 0.9f, 1.0f); // Langit siang cerah
+    } else {
+        glClearColor(0.05f, 0.05f, 0.1f, 1.0f); // Langit malam gelap
+    }
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // ============================
@@ -1012,7 +1218,7 @@ void display() {
     glLoadIdentity();
 
     // Hitung posisi kamera dari koordinat spherical
-    float yawRad   = (float)(camYaw   * DEG2RAD);
+    float yawRad = (float)(camYaw * DEG2RAD);
     float pitchRad = (float)(camPitch * DEG2RAD);
 
     // Posisi mata kamera (eye) = pivot + offset spherical
@@ -1025,9 +1231,9 @@ void display() {
     //   center = titik yang dilihat (pivot)
     //   up     = arah "atas" kamera
     gluLookAt(
-        eyeX, eyeY, eyeZ,                          // Eye Position
-        camPivot.x, camPivot.y, camPivot.z,         // Look-At Target (Pivot)
-        0.0, 1.0, 0.0                               // Up Vector
+        eyeX, eyeY, eyeZ,                   // Eye Position
+        camPivot.x, camPivot.y, camPivot.z, // Look-At Target (Pivot)
+        0.0, 1.0, 0.0                       // Up Vector
     );
 
     // ============================
@@ -1035,33 +1241,159 @@ void display() {
     // ============================
 
     // Set wireframe atau solid
-    if (wireframeMode) {
+    if (wireframeMode)
+    {
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         glDisable(GL_LIGHTING);
-    } else {
+    }
+    else
+    {
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glEnable(GL_LIGHTING);
     }
 
+    // === Toggle Lampu Ruangan ===
+    // Kalkulasi posisi lampu dinamis berdasarkan ukuran (Bounding Box) dari test.obj
+    float lx = (sceneBoundsMax.x - sceneBoundsMin.x) * 0.06f; // Jarak lampu depan belakang banguanan
+    float lz = (sceneBoundsMax.z - sceneBoundsMin.z) * 0.193f; // Jarak lampu kanan kiri banguanan
+    
+    // Geser titik tengah (cx, cz) karena posisi rumah tidak berada di tengah-tengah halaman
+    float cx = sceneCenter.x + (sceneBoundsMax.x - sceneBoundsMin.x) * 0.115f; // Geser ke arah depan-belakang bangunan 
+    float cz = sceneCenter.z - (sceneBoundsMax.z - sceneBoundsMin.z) * -0.112f; // Geser ke arah kiri-kanan bangunan
+
+
+    // Ketinggian lampu diatur dari bawah (lantai)
+    float cy = sceneBoundsMin.y + (sceneBoundsMax.y - sceneBoundsMin.y) * 0.525f;
+
+    GLfloat bulb2Pos[] = {cx - lx, cy, cz - lz, 1.0f}; // Ruang 1 (Kiri Belakang)
+    GLfloat bulb3Pos[] = {cx + lx, cy, cz - lz, 1.0f}; // Ruang 2 (Kanan Belakang)
+    GLfloat bulb4Pos[] = {cx - lx, cy, cz + lz, 1.0f}; // Ruang 3 (Kiri Depan)
+    GLfloat bulb5Pos[] = {cx + lx, cy, cz + lz, 1.0f}; // Ruang 4 (Kanan Depan)
+    GLfloat bulb6Pos[] = {cx, cy, cz, 1.0f};           // Ruang 5 (Tengah-Tengah)
+    GLfloat bulb7Pos[] = {cx - (lx * 1.6f), cy, cz, 1.0f}; // Ruang 6 (Tengah Depan) 
+
+    if (isLightBulbOn && !wireframeMode)
+    {
+        glEnable(GL_LIGHT2);
+        glLightfv(GL_LIGHT2, GL_POSITION, bulb2Pos);
+        glEnable(GL_LIGHT3);
+        glLightfv(GL_LIGHT3, GL_POSITION, bulb3Pos);
+        glEnable(GL_LIGHT4);
+        glLightfv(GL_LIGHT4, GL_POSITION, bulb4Pos);
+        glEnable(GL_LIGHT5);
+        glLightfv(GL_LIGHT5, GL_POSITION, bulb5Pos);
+        glEnable(GL_LIGHT6);
+        glLightfv(GL_LIGHT6, GL_POSITION, bulb6Pos);
+        glEnable(GL_LIGHT7);
+        glLightfv(GL_LIGHT7, GL_POSITION, bulb7Pos);
+
+        // Render visual bolam lampu (ukurannya diperkecil drastis)
+        float bulbRadius = (sceneBoundsMax.x - sceneBoundsMin.x) * 0.002f;
+        if (bulbRadius < 0.01f)
+            bulbRadius = 0.01f;
+
+        glDisable(GL_LIGHTING); // Matikan sementara agar bolam bercahaya
+        glColor3f(1.0f, 0.9f, 0.6f);
+        glPushMatrix();
+        glTranslatef(bulb2Pos[0], bulb2Pos[1], bulb2Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glPushMatrix();
+        glTranslatef(bulb3Pos[0], bulb3Pos[1], bulb3Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glPushMatrix();
+        glTranslatef(bulb4Pos[0], bulb4Pos[1], bulb4Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glPushMatrix();
+        glTranslatef(bulb5Pos[0], bulb5Pos[1], bulb5Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glPushMatrix();
+        glTranslatef(bulb6Pos[0], bulb6Pos[1], bulb6Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glPushMatrix();
+        glTranslatef(bulb7Pos[0], bulb7Pos[1], bulb7Pos[2]);
+        glutSolidSphere(bulbRadius, 16, 16);
+        glPopMatrix();
+        glEnable(GL_LIGHTING);
+    }
+    else
+    {
+        glDisable(GL_LIGHT2);
+        glDisable(GL_LIGHT3);
+        glDisable(GL_LIGHT4);
+        glDisable(GL_LIGHT5);
+        glDisable(GL_LIGHT6);
+        glDisable(GL_LIGHT7);
+    }
+
     // Render scene menggunakan Display List
     // Display List berisi Model Matrix transforms + geometry
-    if (gSceneList) {
-        glPushMatrix();
-        // ---- MODEL MATRIX ----
-        // Di sini kita bisa menerapkan transformasi Model:
-        //   glTranslatef() -> Pindah posisi seluruh scene
-        //   glRotatef()    -> Putar seluruh scene
-        //   glScalef()     -> Skala seluruh scene
-        // Untuk saat ini, model di-render pada posisi aslinya dari Blender
-        // (identitas / tanpa transformasi tambahan)
+    // Setup cahaya Matahari / Bulan berdasarkan waktu
+    GLfloat lightPosDay[] = {100.0f, 200.0f, -100.0f, 0.0f}; // Arah sinar matahari
+    GLfloat lightPosNight[] = {100.0f, 200.0f, -100.0f, 0.0f}; // Arah sinar bulan (disamakan dengan matahari)
 
+    if (isDayTime) {
+        // === Cahaya Siang ===
+        GLfloat sunAmbient[] = {0.3f, 0.3f, 0.3f, 1.0f};
+        GLfloat sunDiffuse[] = {1.0f, 0.95f, 0.9f, 1.0f}; // Cahaya matahari terang kekuningan
+        GLfloat sunSpec[] = {1.0f, 1.0f, 1.0f, 1.0f};
+        glLightfv(GL_LIGHT0, GL_POSITION, lightPosDay);
+        glLightfv(GL_LIGHT0, GL_AMBIENT, sunAmbient);
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, sunDiffuse);
+        glLightfv(GL_LIGHT0, GL_SPECULAR, sunSpec);
+
+        GLfloat fillAmbient[] = {0.2f, 0.2f, 0.25f, 1.0f};
+        GLfloat fillDiffuse[] = {0.3f, 0.3f, 0.4f, 1.0f};
+        glLightfv(GL_LIGHT1, GL_AMBIENT, fillAmbient);
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, fillDiffuse);
+    } else {
+        // === Cahaya Malam ===
+        GLfloat moonAmbient[] = {0.02f, 0.02f, 0.05f, 1.0f};
+        GLfloat moonDiffuse[] = {0.15f, 0.2f, 0.4f, 1.0f}; // Cahaya bulan redup kebiruan
+        GLfloat moonSpec[] = {0.2f, 0.2f, 0.3f, 1.0f};
+        glLightfv(GL_LIGHT0, GL_POSITION, lightPosNight);
+        glLightfv(GL_LIGHT0, GL_AMBIENT, moonAmbient);
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, moonDiffuse);
+        glLightfv(GL_LIGHT0, GL_SPECULAR, moonSpec);
+
+        GLfloat fillAmbient[] = {0.01f, 0.01f, 0.02f, 1.0f};
+        GLfloat fillDiffuse[] = {0.02f, 0.02f, 0.05f, 1.0f};
+        glLightfv(GL_LIGHT1, GL_AMBIENT, fillAmbient);
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, fillDiffuse);
+    }
+
+    // Gambar Matahari / Bulan sebagai objek (sphere)
+    glDisable(GL_LIGHTING);
+    if (isDayTime) {
+        glColor3f(1.0f, 0.95f, 0.7f);
+        glPushMatrix();
+        glTranslatef(sceneCenter.x + 80.0f, sceneBoundsMin.y + 120.0f, sceneCenter.z - 80.0f);
+        glutSolidSphere(8.0, 32, 32);
+        glPopMatrix();
+    } else {
+        glColor3f(0.8f, 0.9f, 1.0f);
+        glPushMatrix();
+        // Koordinat bulan disamakan persis dengan koordinat matahari
+        glTranslatef(sceneCenter.x + 80.0f, sceneBoundsMin.y + 120.0f, sceneCenter.z - 80.0f);
+        glutSolidSphere(6.0, 32, 32);
+        glPopMatrix();
+    }
+    glEnable(GL_LIGHTING);
+
+    if (gSceneList != 0)
+    {
+        glPushMatrix();
         glCallList(gSceneList);
         glPopMatrix();
     }
 
     // Render Grid & Axis (bantuan visual)
-    drawGrid();
-    drawAxes();
+    // drawGrid();
+    // drawAxes();
 
     // ============================
     // HUD (Informasi di layar 2D)
@@ -1073,7 +1405,8 @@ void display() {
     // ============================
     frameCount++;
     int currentTime = glutGet(GLUT_ELAPSED_TIME);
-    if (currentTime - lastFPSTime >= 1000) {
+    if (currentTime - lastFPSTime >= 1000)
+    {
         currentFPS = frameCount * 1000.0f / (float)(currentTime - lastFPSTime);
         lastFPSTime = currentTime;
         frameCount = 0;
@@ -1086,8 +1419,10 @@ void display() {
 // SECTION 12: RESHAPE CALLBACK --- PROJECTION MATRIX (P) ---
 // ============================================================
 
-void reshape(int w, int h) {
-    if (h == 0) h = 1;
+void reshape(int w, int h)
+{
+    if (h == 0)
+        h = 1;
     winW = w;
     winH = h;
 
@@ -1108,10 +1443,10 @@ void reshape(int w, int h) {
     //   zNear  = Jarak bidang potong dekat
     //   zFar   = Jarak bidang potong jauh
     gluPerspective(
-        45.0,       // FOV: 45 derajat
-        aspect,     // Aspect Ratio
-        2.0,        // Near Clipping Plane (Dinaikkan untuk mencegah Z-fighting / bolong)
-        5000.0      // Far Clipping Plane (jauh karena scene besar)
+        45.0,   // FOV: 45 derajat
+        aspect, // Aspect Ratio
+        2.0,    // Near Clipping Plane (Dinaikkan untuk mencegah Z-fighting / bolong)
+        5000.0  // Far Clipping Plane (jauh karena scene besar)
     );
 
     // Kembali ke mode ModelView untuk transformasi V dan M
@@ -1123,75 +1458,101 @@ void reshape(int w, int h) {
 // ============================================================
 
 // --- Keyboard biasa (key down) ---
-void keyboard(unsigned char key, int x, int y) {
+void keyboard(unsigned char key, int x, int y)
+{
     keyState[key] = true;
 
-    switch (key) {
-        case 27: // ESC -> keluar
-            exit(0);
-            break;
+    switch (key)
+    {
+    case 27: // ESC -> keluar
+        exit(0);
+        break;
 
-        case 'z': case 'Z':
-            wireframeMode = !wireframeMode;
-            glutPostRedisplay();
-            break;
+    case 'z':
+    case 'Z':
+        wireframeMode = !wireframeMode;
+        glutPostRedisplay();
+        break;
 
-        case 'r': case 'R':
-            // Reset kamera ke posisi awal
-            camPivot = sceneCenter;
-            camYaw   = -45.0f;
-            camPitch =  20.0f;
-            {
-                float dx = sceneBoundsMax.x - sceneBoundsMin.x;
-                float dy = sceneBoundsMax.y - sceneBoundsMin.y;
-                float dz = sceneBoundsMax.z - sceneBoundsMin.z;
-                camDist = sqrtf(dx*dx + dy*dy + dz*dz) * 0.8f;
-            }
-            glutPostRedisplay();
-            break;
+    case 'r':
+    case 'R':
+        // Reset kamera ke posisi awal
+        camPivot = sceneCenter;
+        camYaw = -45.0f;
+        camPitch = 20.0f;
+        {
+            float dx = sceneBoundsMax.x - sceneBoundsMin.x;
+            float dy = sceneBoundsMax.y - sceneBoundsMin.y;
+            float dz = sceneBoundsMax.z - sceneBoundsMin.z;
+            camDist = sqrtf(dx * dx + dy * dy + dz * dz) * 0.8f;
+        }
+        glutPostRedisplay();
+        break;
 
-        case '+': case '=':
-            moveSpeed *= 1.5f;
-            std::cout << "[SPEED] " << moveSpeed << std::endl;
-            break;
+    case '+':
+    case '=':
+        moveSpeed *= 1.5f;
+        std::cout << "[SPEED] " << moveSpeed << std::endl;
+        break;
 
-        case '-': case '_':
-            moveSpeed /= 1.5f;
-            if (moveSpeed < 0.01f) moveSpeed = 0.01f;
-            std::cout << "[SPEED] " << moveSpeed << std::endl;
-            break;
+    case 'l':
+    case 'L':
+        isLightBulbOn = !isLightBulbOn;
+        glutPostRedisplay();
+        break;
+
+    case 't':
+    case 'T':
+        isDayTime = !isDayTime;
+        glutPostRedisplay();
+        break;
+
+    case '-':
+    case '_':
+        moveSpeed /= 1.5f;
+        if (moveSpeed < 0.01f)
+            moveSpeed = 0.01f;
+        std::cout << "[SPEED] " << moveSpeed << std::endl;
+        break;
     }
 }
 
 // --- Keyboard biasa (key up) ---
-void keyboardUp(unsigned char key, int x, int y) {
+void keyboardUp(unsigned char key, int x, int y)
+{
     keyState[key] = false;
 }
 
 // --- Mouse Button ---
-void mouseButton(int button, int state, int x, int y) {
+void mouseButton(int button, int state, int x, int y)
+{
     // Simpan posisi mouse
     mouseLastX = x;
     mouseLastY = y;
 
-    if (button == GLUT_LEFT_BUTTON) {
+    if (button == GLUT_LEFT_BUTTON)
+    {
         mouseLeftDown = (state == GLUT_DOWN);
     }
-    else if (button == GLUT_RIGHT_BUTTON) {
+    else if (button == GLUT_RIGHT_BUTTON)
+    {
         mouseRightDown = (state == GLUT_DOWN);
     }
-    else if (button == GLUT_MIDDLE_BUTTON) {
+    else if (button == GLUT_MIDDLE_BUTTON)
+    {
         mouseMiddleDown = (state == GLUT_DOWN);
     }
 
     // Scroll wheel (FreeGLUT: button 3 = scroll up, 4 = scroll down)
-    if (button == 3 && state == GLUT_DOWN) {
+    if (button == 3 && state == GLUT_DOWN)
+    {
         // Zoom In (10% lebih dekat)
         camDist *= 0.9f;
         camDist = clampf(camDist, 0.5f, 5000.0f);
         glutPostRedisplay();
     }
-    else if (button == 4 && state == GLUT_DOWN) {
+    else if (button == 4 && state == GLUT_DOWN)
+    {
         // Zoom Out (10% lebih jauh)
         camDist *= 1.1f;
         camDist = clampf(camDist, 0.5f, 5000.0f);
@@ -1200,7 +1561,8 @@ void mouseButton(int button, int state, int x, int y) {
 }
 
 // --- Mouse Motion (drag) ---
-void mouseMotion(int x, int y) {
+void mouseMotion(int x, int y)
+{
     float dx = (float)(x - mouseLastX);
     float dy = (float)(y - mouseLastY);
     mouseLastX = x;
@@ -1212,8 +1574,9 @@ void mouseMotion(int x, int y) {
     // ---- ORBIT (Rotasi mengelilingi pivot) ----
     // Left mouse drag TANPA shift = orbit
     // Middle mouse drag TANPA shift = orbit (Blender-style)
-    if ((mouseLeftDown && !shiftHeld) || (mouseMiddleDown && !shiftHeld)) {
-        camYaw   += dx * 0.4f;
+    if ((mouseLeftDown && !shiftHeld) || (mouseMiddleDown && !shiftHeld))
+    {
+        camYaw += dx * 0.4f;
         camPitch += dy * 0.4f;
         // Clamp pitch agar tidak flip
         camPitch = clampf(camPitch, -89.0f, 89.0f);
@@ -1223,13 +1586,14 @@ void mouseMotion(int x, int y) {
     // ---- PAN (Geser titik pivot) ----
     // Right mouse drag = pan
     // Shift + Left/Middle mouse drag = pan (Blender-style)
-    if (mouseRightDown || (mouseLeftDown && shiftHeld) || (mouseMiddleDown && shiftHeld)) {
+    if (mouseRightDown || (mouseLeftDown && shiftHeld) || (mouseMiddleDown && shiftHeld))
+    {
         float panScale = camDist * 0.002f; // Pan speed proporsional dengan jarak
 
         float yawRad = (float)(camYaw * DEG2RAD);
 
         // Geser pivot dalam arah "kanan" kamera (screen X)
-        float rightX =  cosf(yawRad);
+        float rightX = cosf(yawRad);
         float rightZ = -sinf(yawRad);
         camPivot.x -= rightX * dx * panScale;
         camPivot.z -= rightZ * dx * panScale;
@@ -1242,11 +1606,15 @@ void mouseMotion(int x, int y) {
 }
 
 // --- Mouse Wheel (FreeGLUT extension) ---
-void mouseWheel(int wheel, int direction, int x, int y) {
-    if (direction > 0) {
-        camDist *= 0.9f;  // Zoom in
-    } else {
-        camDist *= 1.1f;  // Zoom out
+void mouseWheel(int wheel, int direction, int x, int y)
+{
+    if (direction > 0)
+    {
+        camDist *= 0.9f; // Zoom in
+    }
+    else
+    {
+        camDist *= 1.1f; // Zoom out
     }
     camDist = clampf(camDist, 0.5f, 5000.0f);
     glutPostRedisplay();
@@ -1256,7 +1624,8 @@ void mouseWheel(int wheel, int direction, int x, int y) {
 // SECTION 14: UPDATE / TIMER (Game Loop untuk WASD)
 // ============================================================
 
-void update(int value) {
+void update(int value)
+{
     bool needRedraw = false;
 
     // Hitung arah kamera untuk WASD movement
@@ -1267,40 +1636,47 @@ void update(int value) {
     float fwdZ = -cosf(yawRad);
 
     // Right = tegak lurus forward (proyeksi XZ)
-    float rightX =  cosf(yawRad);
+    float rightX = cosf(yawRad);
     float rightZ = -sinf(yawRad);
 
     // WASD Movement (gerakkan pivot)
-    if (keyState['w'] || keyState['W']) {
+    if (keyState['w'] || keyState['W'])
+    {
         camPivot.x += fwdX * moveSpeed;
         camPivot.z += fwdZ * moveSpeed;
         needRedraw = true;
     }
-    if (keyState['s'] || keyState['S']) {
+    if (keyState['s'] || keyState['S'])
+    {
         camPivot.x -= fwdX * moveSpeed;
         camPivot.z -= fwdZ * moveSpeed;
         needRedraw = true;
     }
-    if (keyState['a'] || keyState['A']) {
+    if (keyState['a'] || keyState['A'])
+    {
         camPivot.x -= rightX * moveSpeed;
         camPivot.z -= rightZ * moveSpeed;
         needRedraw = true;
     }
-    if (keyState['d'] || keyState['D']) {
+    if (keyState['d'] || keyState['D'])
+    {
         camPivot.x += rightX * moveSpeed;
         camPivot.z += rightZ * moveSpeed;
         needRedraw = true;
     }
-    if (keyState['q'] || keyState['Q']) {
+    if (keyState['q'] || keyState['Q'])
+    {
         camPivot.y += moveSpeed;
         needRedraw = true;
     }
-    if (keyState['e'] || keyState['E']) {
+    if (keyState['e'] || keyState['E'])
+    {
         camPivot.y -= moveSpeed;
         needRedraw = true;
     }
 
-    if (needRedraw) {
+    if (needRedraw)
+    {
         glutPostRedisplay();
     }
 
@@ -1312,13 +1688,14 @@ void update(int value) {
 // SECTION 15: MAIN FUNCTION
 // ============================================================
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     // Inisialisasi GLUT
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE);
     glutInitWindowSize(winW, winH);
     glutInitWindowPosition(100, 50);
-    glutCreateWindow("Grafkom | 0_[-MOYA-]_0 |");
+    glutCreateWindow("Grafkom | 0_[-STARBUCKS-]_0 |");
 
     // Inisialisasi OpenGL
     initGL();
@@ -1336,7 +1713,8 @@ int main(int argc, char** argv) {
 
     // Pastikan path menunjuk ke file OBJ yang sudah di-export dari Blender
     // File MTL akan otomatis di-load melalui directive "mtllib" di dalam OBJ
-    if (!loadOBJ("D:\\Skul\\GK\\TR2\\Starbuck\\object\\test.obj")) {
+    if (!loadOBJ("F:\\document\\file_kuliah\\MatkulGrafikaComputer\\TR-Grafkom\\object\\test.obj"))
+    {
         std::cerr << "FATAL: Gagal memuat file OBJ!" << std::endl;
         std::cerr << "Pastikan file 'object/test.obj' dan 'object/test.mtl' ada." << std::endl;
         return 1;
@@ -1352,13 +1730,13 @@ int main(int argc, char** argv) {
     // ============================================================
     // REGISTER CALLBACK FUNCTIONS
     // ============================================================
-    glutDisplayFunc(display);        // Render callback
-    glutReshapeFunc(reshape);        // Window resize callback (Projection Matrix)
-    glutKeyboardFunc(keyboard);      // Keyboard key-down
-    glutKeyboardUpFunc(keyboardUp);  // Keyboard key-up
-    glutMouseFunc(mouseButton);      // Mouse button
-    glutMotionFunc(mouseMotion);     // Mouse drag
-    glutMouseWheelFunc(mouseWheel);  // Scroll wheel (FreeGLUT)
+    glutDisplayFunc(display);       // Render callback
+    glutReshapeFunc(reshape);       // Window resize callback (Projection Matrix)
+    glutKeyboardFunc(keyboard);     // Keyboard key-down
+    glutKeyboardUpFunc(keyboardUp); // Keyboard key-up
+    glutMouseFunc(mouseButton);     // Mouse button
+    glutMotionFunc(mouseMotion);    // Mouse drag
+    glutMouseWheelFunc(mouseWheel); // Scroll wheel (FreeGLUT)
 
     // Timer untuk WASD movement (game loop)
     glutTimerFunc(16, update, 0);
