@@ -1,0 +1,2600 @@
+# Blender 5.2.0 LTS MTL File: 'TR_Grafkom (2).blend'
+# www.blender.org
+
+newmtl Material.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/brown_leather_1k.blend/textures/brown_leather_rough_1k.jpg
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/brown_leather_1k.blend/textures/brown_leather_nor_gl_1k.exr
+
+newmtl Material.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.021
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.022
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.490000
+d 0.400000
+illum 9
+
+newmtl Material.025
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.490000
+d 1.000000
+illum 2
+
+newmtl Material.027
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.490000
+d 1.000000
+illum 2
+
+newmtl Material.040
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.041
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/starbuck_promo.png
+
+newmtl Material.042
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 0.5000001 0.4999999 1 D:/Skul/GK/TR2/Starbuck/Texture/metal_pipe.jpg
+
+newmtl Material.044
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.045
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.046
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.050
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.051
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.052
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.053
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.054
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/metal_pipe.jpg
+
+newmtl Material.055
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.056
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.057
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.058
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.059
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.060
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.061
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.062
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.063
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.064
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.065
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.066
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.067
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.068
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.069
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.070
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.071
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_chair.png
+
+newmtl Material.079
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 5 0.79999995 1 D:/Skul/GK/TR2/Starbuck/Texture/poly_wool_herringbone_diff_1k.jpg
+
+newmtl Material.080
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3 2 1 D:/Skul/GK/TR2/Starbuck/Texture/poly_wool_herringbone_diff_1k.jpg
+
+newmtl Material.081
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 5.4999995 3.4000015 1 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.082
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/terlenka_diff_1k.jpg
+
+newmtl Material.083
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.084
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.085
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.086
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.087
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.088
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.089
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.090
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.091
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 5 1 D:/Skul/GK/TR2/Starbuck/Texture/wood_table_worn_1k.blend/textures/wood_table_worn_diff_1k.jpg
+
+newmtl Material.092
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.093
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.096
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.098
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.099
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.100
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.101
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.102
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.103
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.104
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.105
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.106
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.107
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.108
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.109
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.111
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.112
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.113
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.114
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.115
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.116
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.117
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.118
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.119
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.120
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.121
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.122
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.123
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.124
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.125
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.126
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.127
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.128
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.129
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.130
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.131
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.132
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.133
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.134
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.135
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.136
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.137
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.138
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.139
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.140
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.141
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.142
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.143
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.144
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.145
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.146
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.148
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.149
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.150
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.153
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.154
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.156
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.157
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.160
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.161
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.162
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.163
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.164
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.165
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.166
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.167
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.168
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.169
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.170
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.171
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.172
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.173
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.174
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.175
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.176
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.177
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.178
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.179
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.180
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.182
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.183
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.184
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.185
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.186
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall2.png
+
+newmtl Material.187
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.188
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.189
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.190
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.191
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.192
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.193
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.195
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 30 4 1 D:/Skul/GK/TR2/Starbuck/Texture/cobblestone_floor_06_diff_1k.jpg
+
+newmtl Material.196
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3 12.5 1 D:/Skul/GK/TR2/Starbuck/Texture/brown_floor_tiles_diff_1k.jpg
+
+newmtl Material.197
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s -1 3 1 D:/Skul/GK/TR2/Starbuck/Texture/brown_floor_tiles_diff_1k.jpg
+
+newmtl Material.198
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.199
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.200
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.201
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.202
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.203
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.204
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.205
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.207
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/green_plastic.png
+
+newmtl Material.208
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.209
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.210
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.211
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.219
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.4999988 13 1 D:/Skul/GK/TR2/Starbuck/Texture/brown_floor_tiles_diff_1k.jpg
+
+newmtl Material.220
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.221
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 2.4000006 7.999993 1 D:/Skul/GK/TR2/Starbuck/Texture/granite_tile_diff_1k.jpg
+
+newmtl Material.222
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.223
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.224
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.226
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.227
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.228
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.229
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.230
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.231
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.232
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.233
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.234
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.235
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.236
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.237
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.238
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.239
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.240
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.241
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.242
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.243
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.244
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.245
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.248
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.249
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.252
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.253
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.254
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+map_Ns D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_rough_4k.exr
+map_Bump -bm 1.000000 D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_nor_gl_4k.exr
+
+newmtl Material.255
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_metal.jpg
+
+newmtl Material.256
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.257
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/wooden_chair.jpg
+
+newmtl Material.268
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 D:/Skul/GK/TR2/Starbuck/Texture/brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg
+
+newmtl Material.271
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 5 5 1 D:/Skul/GK/TR2/Starbuck/Texture/white_leather.jpg
+
+newmtl Material.272
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.273
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/metal.jpg
+
+newmtl Material.274
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.275
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/terlenka_diff_1k.jpg
+
+newmtl Material.276
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/watersink.jpg
+
+newmtl Material.277
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.278
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl Material.279
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.280
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 1 4.9999976 1 D:/Skul/GK/TR2/Starbuck/Texture/white_tile.jpg
+
+newmtl Material.281
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.282
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.283
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.284
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.285
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.286
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.287
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.288
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.289
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.290
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.292
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.293
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.294
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.295
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.296
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.297
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.298
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.299
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.300
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.301
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.302
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.303
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.9999986 10 1 D:/Skul/GK/TR2/Starbuck/Texture/cobblestone_floor_06_diff_1k.jpg
+
+newmtl Material.304
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.305
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.306
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.308
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.309
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.310
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.311
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 1 2.1000001 1 D:/Skul/GK/TR2/Starbuck/Texture/brown_mud_leaves_01_diff_1k.jpg
+
+newmtl Material.312
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 30 15 1 D:/Skul/GK/TR2/Starbuck/Texture/large_grey_tiles_diff_1k.jpg
+
+newmtl Material.313
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 30 30 1 D:/Skul/GK/TR2/Starbuck/Texture/large_grey_tiles_diff_1k.jpg
+
+newmtl Material.314
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 60 30 1 D:/Skul/GK/TR2/Starbuck/Texture/large_grey_tiles_diff_1k.jpg
+
+newmtl Material.315
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 50 15 1 D:/Skul/GK/TR2/Starbuck/Texture/large_grey_tiles_diff_1k.jpg
+
+newmtl Material.316
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 30 5 1 D:/Skul/GK/TR2/Starbuck/Texture/granite_tile_04_diff_1k.jpg
+
+newmtl Material.317
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/grey_concrete_wall.png
+
+newmtl Material.318
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 5 1 D:/Skul/GK/TR2/Starbuck/Texture/tile_grass.jpg
+
+newmtl Material.319
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/grey_concrete_wall.png
+
+newmtl Material.320
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/grey_concrete_wall.png
+
+newmtl Material.321
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/trotoar.jpg
+
+newmtl Material.322
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s -2500 5 1 D:/Skul/GK/TR2/Starbuck/Texture/granite_tile_diff_1k.jpg
+
+newmtl Material.325
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg
+
+newmtl Material.327
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.328
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.329
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.330
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.400000
+illum 9
+
+newmtl Material.331
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.332
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.333
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/blue_wall.png
+
+newmtl Material.334
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/grey_concrete_wall.png
+
+newmtl Material.335
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/oak_veneer_01_4k.blend/textures/oak_veneer_01_diff_4k.jpg
+
+newmtl Material.336
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 D:/Skul/GK/TR2/Starbuck/Texture/genteng.png
+
+newmtl Material.337
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 2.5 2.5 1 D:/Skul/GK/TR2/Starbuck/Texture/genteng.png
+
+newmtl Material.338
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 5 2 1 D:/Skul/GK/TR2/Starbuck/Texture/genteng.png
+
+newmtl Material.339
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.340
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 4 2.5 1 D:/Skul/GK/TR2/Starbuck/Texture/genteng.png
+
+newmtl Material.341
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/white_concrete.png
+
+newmtl Material.342
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Skul/GK/TR2/Starbuck/Texture/black_plastic.png
+
+newmtl None
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/LEGION/Downloads/78-hazelnutbush/HazelnutBark.png
+
+newmtl None_Hazelnut.png
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/LEGION/Downloads/78-hazelnutbush/HazelnutLeaves.png
+
+newmtl Steel_-_Satin.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd -s 2.6999996 15 1 D:/Skul/GK/TR2/Starbuck/Texture/road.jpg
