@@ -1716,7 +1716,7 @@ int main(int argc, char **argv)
 
     // Pastikan path menunjuk ke file OBJ yang sudah di-export dari Blender
     // File MTL akan otomatis di-load melalui directive "mtllib" di dalam OBJ
-    if (!loadOBJ("D:\\Skul\\GK\\TR2\\Starbuck\\TR-Grafkom\\object\\test.obj"))
+    if (!loadOBJ("F:\\document\\file kuliah\\MatkulGrafikaComputer\\TR-Grafkom\\object\\test.obj"))
     {
         std::cerr << "FATAL: Gagal memuat file OBJ!" << std::endl;
         std::cerr << "Pastikan file 'object/test.obj' dan 'object/test.mtl' ada." << std::endl;
