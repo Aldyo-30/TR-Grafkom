@@ -150,6 +150,7 @@ int winW = 1280, winH = 720;
 bool wireframeMode = false;
 bool isLightBulbOn = true; // Toggle untuk bolam lampu
 bool isDayTime = true;     // Toggle untuk siang/malam
+bool discoMode = false;    // Toggle untuk mode disco
 
 // --- FPS Counter ---
 int frameCount = 0;
@@ -1261,51 +1262,53 @@ void display()
 
     if (isLightBulbOn && !wireframeMode)
     {
-        glEnable(GL_LIGHT2);
-        glLightfv(GL_LIGHT2, GL_POSITION, bulb2Pos);
-        glEnable(GL_LIGHT3);
-        glLightfv(GL_LIGHT3, GL_POSITION, bulb3Pos);
-        glEnable(GL_LIGHT4);
-        glLightfv(GL_LIGHT4, GL_POSITION, bulb4Pos);
-        glEnable(GL_LIGHT5);
-        glLightfv(GL_LIGHT5, GL_POSITION, bulb5Pos);
-        glEnable(GL_LIGHT6);
-        glLightfv(GL_LIGHT6, GL_POSITION, bulb6Pos);
-        glEnable(GL_LIGHT7);
-        glLightfv(GL_LIGHT7, GL_POSITION, bulb7Pos);
+        GLenum bulbLights[6] = {GL_LIGHT2, GL_LIGHT3, GL_LIGHT4, GL_LIGHT5, GL_LIGHT6, GL_LIGHT7};
+        GLfloat* bulbPositions[6] = {bulb2Pos, bulb3Pos, bulb4Pos, bulb5Pos, bulb6Pos, bulb7Pos};
 
-        // Render visual bolam lampu (ukurannya diperkecil drastis)
         float bulbRadius = (sceneBoundsMax.x - sceneBoundsMin.x) * 0.002f;
         if (bulbRadius < 0.01f)
             bulbRadius = 0.01f;
 
-        glDisable(GL_LIGHTING); // Matikan sementara agar bolam bercahaya
-        glColor3f(1.0f, 0.9f, 0.6f);
-        glPushMatrix();
-        glTranslatef(bulb2Pos[0], bulb2Pos[1], bulb2Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(bulb3Pos[0], bulb3Pos[1], bulb3Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(bulb4Pos[0], bulb4Pos[1], bulb4Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(bulb5Pos[0], bulb5Pos[1], bulb5Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(bulb6Pos[0], bulb6Pos[1], bulb6Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(bulb7Pos[0], bulb7Pos[1], bulb7Pos[2]);
-        glutSolidSphere(bulbRadius, 16, 16);
-        glPopMatrix();
-        glEnable(GL_LIGHTING);
+        float t = glutGet(GLUT_ELAPSED_TIME) * 0.003f;
+
+        for (int i = 0; i < 6; i++)
+        {
+            glEnable(bulbLights[i]);
+            glLightfv(bulbLights[i], GL_POSITION, bulbPositions[i]);
+
+            GLfloat color[4];
+            if (discoMode)
+            {
+                // Continuous RGB cycle with phase offset per light
+                float phase = t + i * 1.05f;
+                color[0] = 0.5f + 0.5f * sinf(phase);
+                color[1] = 0.5f + 0.5f * sinf(phase + 2.094f);
+                color[2] = 0.5f + 0.5f * sinf(phase + 4.188f);
+                color[3] = 1.0f;
+
+                glLightfv(bulbLights[i], GL_DIFFUSE, color);
+            }
+            else
+            {
+                // Restore original warm-white lighting when discoMode == false
+                color[0] = 1.0f;
+                color[1] = 0.9f;
+                color[2] = 0.6f;
+                color[3] = 1.0f;
+
+                GLfloat normDiff[] = {0.9f, 0.8f, 0.6f, 1.0f};
+                glLightfv(bulbLights[i], GL_DIFFUSE, normDiff);
+            }
+
+            // Render bulb sphere using exact same RGB color as corresponding light
+            glDisable(GL_LIGHTING);
+            glColor3fv(color);
+            glPushMatrix();
+            glTranslatef(bulbPositions[i][0], bulbPositions[i][1], bulbPositions[i][2]);
+            glutSolidSphere(bulbRadius, 16, 16);
+            glPopMatrix();
+            glEnable(GL_LIGHTING);
+        }
     }
     else
     {
@@ -1488,6 +1491,14 @@ void keyboard(unsigned char key, int x, int y)
         glutPostRedisplay();
         break;
 
+    case 'p':
+    case 'P':
+        discoMode = !discoMode;
+        if (discoMode)
+            isLightBulbOn = true;
+        glutPostRedisplay();
+        break;
+
     case 't':
     case 'T':
         isDayTime = !isDayTime;
@@ -1659,6 +1670,11 @@ void update(int value)
     if (keyState['e'] || keyState['E'])
     {
         camPivot.y -= moveSpeed;
+        needRedraw = true;
+    }
+
+    if (discoMode)
+    {
         needRedraw = true;
     }
 
