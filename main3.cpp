@@ -202,10 +202,9 @@ static void drawBitmapString(float x, float y, const char *text, void *font = GL
     }
 }
 
-// Resolusi path dinamis dengan base directory ter-hardcode
+// Resolusi path dinamis tanpa base directory ter-hardcode
 static std::string resolvePath(const std::string &originalPath)
 {
-    const std::string baseDir = "D:/Skul/GK/TR2/GrafkomMoya-Panji-Object/";
     std::string path = originalPath;
     std::replace(path.begin(), path.end(), '\\', '/');
 
@@ -216,108 +215,96 @@ static std::string resolvePath(const std::string &originalPath)
         {
             return path;
         }
-        // Cek dengan baseDir jika path adalah path relatif
-        std::string tryBase = baseDir + path;
-        std::ifstream fb(tryBase.c_str());
-        if (fb.good())
-        {
-            return tryBase;
-        }
     }
 
-    // Konversi ke lowercase untuk pencarian case-insensitive
-    std::string lowerPath = path;
-    std::transform(lowerPath.begin(), lowerPath.end(), lowerPath.begin(), ::tolower);
-
     // Jika path dimulai dengan opsi (misalnya "-s "), kita potong opsi tersebut
-    if (path.rfind("-s ", 0) == 0)
+    std::string cleanPath = path;
+    if (cleanPath.rfind("-s ", 0) == 0)
     {
-        std::istringstream iss(path);
+        std::istringstream iss(cleanPath);
         std::string s_opt;
         float sx, sy, sz;
         if (iss >> s_opt >> sx >> sy >> sz)
         {
-            std::getline(iss, path);
-            path = trimStr(path);
-            lowerPath = path;
-            std::transform(lowerPath.begin(), lowerPath.end(), lowerPath.begin(), ::tolower);
+            std::getline(iss, cleanPath);
+            cleanPath = trimStr(cleanPath);
         }
     }
 
+    // Cek cleanPath secara langsung
+    {
+        std::ifstream f(cleanPath.c_str());
+        if (f.good())
+        {
+            return cleanPath;
+        }
+    }
+
+    std::string lowerPath = cleanPath;
+    std::transform(lowerPath.begin(), lowerPath.end(), lowerPath.begin(), ::tolower);
+
     // Cari marker folder "texture" atau "textures"
     size_t texPos = lowerPath.find("/texture/");
+    size_t matchLen = 9;
     if (texPos == std::string::npos)
     {
         texPos = lowerPath.find("/textures/");
+        matchLen = 10;
     }
     if (texPos == std::string::npos && (lowerPath.rfind("texture/", 8) == 0 || lowerPath.rfind("textures/", 9) == 0))
     {
         texPos = 0;
+        matchLen = (lowerPath.rfind("textures/", 9) == 0) ? 9 : 8;
     }
 
     if (texPos != std::string::npos)
     {
-        size_t startPos = (texPos == 0) ? 0 : path.find('/', texPos);
-        if (startPos != std::string::npos)
+        std::string sub = cleanPath.substr(texPos + matchLen);
+        std::string tryTex = "Texture/" + sub;
+        std::ifstream f(tryTex.c_str());
+        if (f.good())
         {
-            std::string sub = path.substr(startPos + 1);
-            size_t slashPos = sub.find('/');
-            if (slashPos != std::string::npos)
-            {
-                std::string rest = sub.substr(slashPos + 1);
-                std::string tryPath = baseDir + "Texture/" + rest;
-                std::ifstream f(tryPath.c_str());
-                if (f.good())
-                {
-                    return tryPath;
-                }
-            }
+            return tryTex;
         }
     }
 
     // Cari marker folder "object" atau "objects"
     size_t objPos = lowerPath.find("/object/");
+    matchLen = 8;
     if (objPos == std::string::npos)
     {
         objPos = lowerPath.find("/objects/");
+        matchLen = 9;
     }
     if (objPos == std::string::npos && (lowerPath.rfind("object/", 7) == 0 || lowerPath.rfind("objects/", 8) == 0))
     {
         objPos = 0;
+        matchLen = (lowerPath.rfind("objects/", 8) == 0) ? 8 : 7;
     }
 
     if (objPos != std::string::npos)
     {
-        size_t startPos = (objPos == 0) ? 0 : path.find('/', objPos);
-        if (startPos != std::string::npos)
+        std::string sub = cleanPath.substr(objPos + matchLen);
+        std::string tryObj = "object/" + sub;
+        std::ifstream f(tryObj.c_str());
+        if (f.good())
         {
-            std::string sub = path.substr(startPos + 1);
-            size_t slashPos = sub.find('/');
-            if (slashPos != std::string::npos)
-            {
-                std::string rest = sub.substr(slashPos + 1);
-                std::string tryPath = baseDir + "object/" + rest;
-                std::ifstream f(tryPath.c_str());
-                if (f.good())
-                {
-                    return tryPath;
-                }
-            }
+            return tryObj;
         }
     }
 
     // Fallback ke nama file saja di folder Texture/ atau object/
-    size_t lastSlash = path.find_last_of('/');
-    std::string filename = (lastSlash == std::string::npos) ? path : path.substr(lastSlash + 1);
+    size_t lastSlash = cleanPath.find_last_of('/');
+    std::string filename = (lastSlash == std::string::npos) ? cleanPath : cleanPath.substr(lastSlash + 1);
     if (!filename.empty())
     {
-        std::string tryTex = baseDir + "Texture/" + filename;
+        std::string tryTex = "Texture/" + filename;
         {
             std::ifstream f(tryTex.c_str());
             if (f.good())
                 return tryTex;
         }
-        std::string tryObj = baseDir + "object/" + filename;
+        std::string tryObj = "object/" + filename;
         {
             std::ifstream f(tryObj.c_str());
             if (f.good())
@@ -1713,7 +1700,7 @@ int main(int argc, char **argv)
 
     // Pastikan path menunjuk ke file OBJ yang sudah di-export dari Blender
     // File MTL akan otomatis di-load melalui directive "mtllib" di dalam OBJ
-    if (!loadOBJ("F:\\document\\file_kuliah\\MatkulGrafikaComputer\\TR-Grafkom\\object\\test.obj"))
+    if (!loadOBJ("D:\\Skul\\GK\\TR2\\Starbuck\\TR-Grafkom\\object\\test.obj"))
     {
         std::cerr << "FATAL: Gagal memuat file OBJ!" << std::endl;
         std::cerr << "Pastikan file 'object/test.obj' dan 'object/test.mtl' ada." << std::endl;
